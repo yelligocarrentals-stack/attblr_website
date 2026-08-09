@@ -1,9 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, MapPin } from "lucide-react";
+import { ArrowRight, MapPin, ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 
 const slides = [
@@ -36,35 +36,71 @@ const slides = [
 export default function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 5000);
-    return () => clearInterval(timer);
+  const nextSlide = useCallback(() => {
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
   }, []);
 
+  const prevSlide = useCallback(() => {
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  }, []);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      nextSlide();
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [nextSlide]);
+
   return (
-    <section className="relative h-[85vh] min-h-[600px] w-full flex flex-col items-center justify-center overflow-hidden pt-20 pb-20">
-      {/* Background Slider - 100% Full Opacity */}
+    <section className="relative h-[85vh] min-h-[600px] w-full flex flex-col items-center justify-center overflow-hidden pt-20 pb-20 select-none">
+      {/* Background Slider with Swipe Support */}
       <AnimatePresence initial={false}>
         <motion.div
           key={currentSlide}
           initial={{ opacity: 0, scale: 1.05 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 1.2, ease: "easeInOut" }}
-          className="absolute inset-0 z-0"
+          transition={{ duration: 1, ease: "easeInOut" }}
+          drag="x"
+          dragConstraints={{ left: 0, right: 0 }}
+          dragElastic={0.2}
+          onDragEnd={(_, { offset }) => {
+            if (offset.x < -50) {
+              nextSlide();
+            } else if (offset.x > 50) {
+              prevSlide();
+            }
+          }}
+          className="absolute inset-0 z-0 cursor-grab active:cursor-grabbing"
         >
           <img 
             src={slides[currentSlide].image} 
             alt={slides[currentSlide].location} 
-            className="w-full h-full object-cover opacity-100"
+            className="w-full h-full object-cover opacity-100 pointer-events-none"
           />
         </motion.div>
       </AnimatePresence>
 
       {/* Dark gradient shadow for top navbar only (NO white glare at bottom) */}
-      <div className="absolute inset-0 z-0 bg-gradient-to-b from-black/60 via-transparent to-transparent"></div>
+      <div className="absolute inset-0 z-0 bg-gradient-to-b from-black/60 via-transparent to-transparent pointer-events-none"></div>
+      
+      {/* Left Arrow Navigation Button */}
+      <button
+        onClick={prevSlide}
+        aria-label="Previous Slide"
+        className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-black/40 hover:bg-black/70 border border-white/20 text-white flex items-center justify-center backdrop-blur-md transition-all hover:scale-110 shadow-lg"
+      >
+        <ChevronLeft size={28} />
+      </button>
+
+      {/* Right Arrow Navigation Button */}
+      <button
+        onClick={nextSlide}
+        aria-label="Next Slide"
+        className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-black/40 hover:bg-black/70 border border-white/20 text-white flex items-center justify-center backdrop-blur-md transition-all hover:scale-110 shadow-lg"
+      >
+        <ChevronRight size={28} />
+      </button>
       
       <div className="container relative z-10 mx-auto px-6 md:px-12 flex flex-col items-center justify-center h-full">
 
