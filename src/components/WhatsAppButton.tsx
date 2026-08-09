@@ -25,7 +25,7 @@ export default function WhatsAppButton() {
       </AnimatePresence>
 
       <a
-        href="https://wa.me/919876543210?text=Hi%20ATT-BLR,%20I%20would%20like%20to%20book%20a%20trip!"
+        href="https://wa.me/919591355066?text=Hi%20Arjun%20Tours%20and%20Travels,%20I%20would%20like%20to%20book%20a%20trip!"
         target="_blank"
         rel="noopener noreferrer"
         className="relative group flex items-center justify-center w-16 h-16 bg-[#25D366] text-white rounded-full shadow-[0_4px_20px_rgba(37,211,102,0.4)] transition-transform hover:scale-110 z-50 animate-pulse-whatsapp"

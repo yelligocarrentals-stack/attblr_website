@@ -91,7 +91,7 @@ export default function HeroSection() {
               </h1>
               
               <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-center">
-                <Link href={`https://wa.me/919876543210?text=I%20want%20to%20enquire%20about%20a%20trip%20to%20${slides[currentSlide].location}`} target="_blank" className="w-full sm:w-auto">
+                <Link href={`https://wa.me/919591355066?text=I%20want%20to%20enquire%20about%20a%20trip%20to%20${slides[currentSlide].location}`} target="_blank" className="w-full sm:w-auto">
                   <button className="w-full sm:w-auto group relative overflow-hidden bg-gradient-brand text-white px-7 py-3.5 rounded-full font-bold transition-transform hover:scale-105 shadow-[0_0_25px_rgba(0,0,0,0.5)] whitespace-nowrap flex items-center justify-center gap-2">
                     Enquire Now <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                   </button>
