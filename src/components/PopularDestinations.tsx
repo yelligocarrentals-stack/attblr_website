@@ -33,7 +33,7 @@ export default function PopularDestinations() {
   ];
 
   return (
-    <section className="py-24 relative bg-white">
+    <section id="packages" className="py-24 relative bg-white">
       <div className="container mx-auto px-6 md:px-12">
         <div className="text-center mb-16">
           <motion.h2 

@@ -19,12 +19,12 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: "Home", href: "/" },
-    { name: "About Us", href: "/about" },
-    { name: "Services", href: "/services" },
-    { name: "Fleet", href: "/fleet" },
-    { name: "Packages", href: "/packages" },
-    { name: "Contact", href: "/contact" },
+    { name: "Home", href: "#" },
+    { name: "About Us", href: "#about" },
+    { name: "Services", href: "#services" },
+    { name: "Fleet", href: "#fleet" },
+    { name: "Packages", href: "#packages" },
+    { name: "Contact", href: "#booking" },
   ];
 
   return (
@@ -82,7 +82,7 @@ export default function Navbar() {
             transition={{ delay: 0.6 }}
           >
             <Link
-              href="/contact"
+              href="#booking"
               className="bg-gradient-brand hover:opacity-90 text-white px-6 py-2.5 rounded-full font-semibold transition-all shadow-[0_0_15px_rgba(0,229,255,0.3)] hover:shadow-[0_0_25px_rgba(0,229,255,0.6)]"
             >
               Book Now
@@ -119,7 +119,7 @@ export default function Navbar() {
             </Link>
           ))}
           <Link
-            href="/contact"
+            href="#booking"
             onClick={() => setMobileMenuOpen(false)}
             className="bg-gradient-brand text-center text-white mt-4 px-6 py-3 rounded-lg font-semibold"
           >

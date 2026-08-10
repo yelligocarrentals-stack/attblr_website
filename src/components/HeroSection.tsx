@@ -128,13 +128,8 @@ export default function HeroSection() {
               
               <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-center">
                 <Link href={`https://wa.me/919591355066?text=I%20want%20to%20enquire%20about%20a%20trip%20to%20${slides[currentSlide].location}`} target="_blank" className="w-full sm:w-auto">
-                  <button className="w-full sm:w-auto group relative overflow-hidden bg-gradient-brand text-white px-7 py-3.5 rounded-full font-bold transition-transform hover:scale-105 shadow-[0_0_25px_rgba(0,0,0,0.5)] whitespace-nowrap flex items-center justify-center gap-2">
+                  <button className="w-full sm:w-auto group relative overflow-hidden bg-gradient-brand text-white px-8 py-3.5 rounded-full font-bold transition-transform hover:scale-105 shadow-[0_0_25px_rgba(0,0,0,0.5)] whitespace-nowrap flex items-center justify-center gap-2">
                     Enquire Now <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                  </button>
-                </Link>
-                <Link href="#booking" className="w-full sm:w-auto">
-                  <button className="w-full sm:w-auto bg-black/50 hover:bg-black/70 border border-white/40 text-white px-7 py-3.5 rounded-full font-bold transition-all whitespace-nowrap backdrop-blur-md shadow-lg">
-                    Book Ride
                   </button>
                 </Link>
               </div>

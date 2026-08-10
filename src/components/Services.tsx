@@ -38,7 +38,7 @@ export default function Services() {
   ];
 
   return (
-    <section className="py-24 relative overflow-hidden bg-[#F8F9FA]">
+    <section id="services" className="py-24 relative overflow-hidden bg-[#F8F9FA]">
       {/* Background glowing orb */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[radial-gradient(circle,rgba(10,36,99,0.05)_0%,transparent_70%)] rounded-full blur-[100px] pointer-events-none"></div>
 
