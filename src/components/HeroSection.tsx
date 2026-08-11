@@ -30,6 +30,12 @@ const slides = [
     image: "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?q=80&w=2070&auto=format&fit=crop",
     location: "Kerala",
     subtitle: "God's Own Country"
+  },
+  {
+    id: 5,
+    image: "/madurai-rameswaram-kanyakumari.jpg",
+    location: "Madurai – Rameswaram – Kanyakumari",
+    subtitle: "Spiritual & Scenic Southern Tour"
   }
 ];
 
